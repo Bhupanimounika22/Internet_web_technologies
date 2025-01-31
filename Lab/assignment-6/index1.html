@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: inline-block;
+            width: 200px;
+            text-align: right;
+        }
+        input[type="text"], input[type="number"] {
+            width: 150px;
+        }
+        select {
+            width: 150px;
+        }
+        button {
+            margin-top: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tax Calculator</h1>
+        <label for="assessmentYear">Assessment Year:</label>
+        <select id="assessmentYear">
+            <option value="2023">2023</option>
+            <!-- Add more years as needed -->
+        </select><br><br>
+
+        <label for="taxPayer">Tax Payer:</label>
+        <select id="taxPayer">
+            <option value="individual">Individual</option>
+            <option value="company">Company</option>
+            <!-- Add more options as needed -->
+        </select><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="senior">Senior Citizen</option>
+            <!-- Add more options as needed -->
+        </select><br><br>
+
+        <label for="residentialStatus">Residential Status:</label>
+        <select id="residentialStatus">
+            <option value="resident">Resident</option>
+            <option value="non-resident">Non-Resident</option>
+            <!-- Add more options as needed -->
+        </select><br><br>
+
+        <label for="income">Net Taxable Income:</label>
+        <input type="number" id="income" placeholder="Enter income"><br><br>
+
+        <label for="relief87A">Income Tax after relief u/s 87A:</label>
+        <input type="number" id="relief87A" placeholder="Enter relief amount"><br><br>
+
+        <label for="surcharge">Surcharge:</label>
+        <input type="number" id="surcharge" placeholder="Enter surcharge"><br><br>
+
+        <label for="educationCess">Education Cess:</label>
+        <input type="number" id="educationCess" placeholder="Enter education cess"><br><br>
+
+        <button onclick="calculateTax()">Calculate Tax</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateTax() {
+            const assessmentYear = document.getElementById("assessmentYear").value;
+            const taxPayer = document.getElementById("taxPayer").value;
+            const gender = document.getElementById("gender").value;
+            const residentialStatus = document.getElementById("residentialStatus").value;
+            const income = parseFloat(document.getElementById("income").value);
+            const relief87A = parseFloat(document.getElementById("relief87A").value);
+            const surcharge = parseFloat(document.getElementById("surcharge").value);
+            const educationCess = parseFloat(document.getElementById("educationCess").value);
+
+            // Calculate total tax liability here using your tax calculation formula
+
+            const totalTaxLiability = calculateTaxLiability(income, relief87A, surcharge, educationCess);
+
+            document.getElementById("result").innerHTML = `Total Tax Liability for Assessment Year ${assessmentYear}: $${totalTaxLiability.toFixed(2)}`;
+        }
+
+        function calculateTaxLiability(income, relief87A, surcharge, educationCess) {
+            // Implement your tax calculation logic here
+            // You can use if-else statements or switch cases based on tax rules
+
+            // For demonstration purposes, let's assume a simple tax calculation:
+            // Taxable Income = Income - Relief u/s 87A
+            // Tax = Taxable Income * Tax Rate + Surcharge
+            // Total Tax Liability = Tax + Education Cess
+
+            const taxableIncome = income - relief87A;
+            let tax = 0;
+
+            // Implement your tax calculation logic based on tax rules
+            // Example:
+            if (taxableIncome <= 500000) {
+                tax = taxableIncome * 0.05;
+            } else if (taxableIncome <= 1000000) {
+                tax = 25000 + (taxableIncome - 500000) * 0.2;
+            } else {
+                // Implement additional tax slabs here
+            }
+
+            // Add surcharge and education cess
+            tax += surcharge;
+            tax += (tax * educationCess / 100);
+
+            return tax;
+        }
+    </script>
+</body>
+</html>

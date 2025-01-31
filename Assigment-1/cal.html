@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  
+  .calculator {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    width: 300px;
+  }
+  
+  #display {
+    width: 100%;
+    font-size: 24px;
+    border: none;
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  
+  button {
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  
+</style>
+<body>
+  <div class="calculator">
+    <input id="display" type="text" readonly>
+    <div class="buttons">
+      <button onclick="appendNumber('7')">1</button>
+      <button onclick="appendNumber('8')">2</button>
+      <button onclick="appendNumber('9')">3</button>
+      <button onclick="appendOperator('+')">+</button>
+      <button onclick="appendNumber('4')">4</button>
+      <button onclick="appendNumber('5')">5</button>
+      <button onclick="appendNumber('6')">6</button>
+      <button onclick="appendOperator('-')">-</button>
+      <button onclick="appendNumber('1')">7</button>
+      <button onclick="appendNumber('2')">8</button>
+      <button onclick="appendNumber('3')">9</button>
+      <button onclick="appendOperator('*')">*</button>
+      <button onclick="appendNumber('0')">0</button>
+      <button onclick="appendDecimal('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="appendOperator('/')">/</button>
+      <button onclick="calculatePower()">^</button>
+   
+    </div>
+  </div>
+  <script>
+    let displayValue = '';
+
+function appendNumber(number) {
+  displayValue += number;
+  updateDisplay();
+}
+
+function appendOperator(operator) {
+  displayValue += ` ${operator} `;
+  updateDisplay();
+}
+
+function appendDecimal(decimal) {
+  if (!displayValue.includes(decimal)) {
+    displayValue += decimal;
+    updateDisplay();
+  }
+}
+
+function updateDisplay() {
+  document.getElementById('display').value = displayValue;
+}
+
+function clearDisplay() {
+  displayValue = '';
+  updateDisplay();
+}
+
+function calculate() {
+  try {
+    displayValue = eval(displayValue).toString();
+    updateDisplay();
+  } catch (error) {
+    displayValue = 'Error';
+    updateDisplay();
+  }
+}
+
+function calculatePower() {
+  displayValue = Math.pow(eval(displayValue), 2).toString();
+  updateDisplay();
+}
+
+function calculateSquare() {
+  displayValue = Math.pow(eval(displayValue), 2).toString();
+  updateDisplay();
+}
+
+  </script>
+</body>
+</html>

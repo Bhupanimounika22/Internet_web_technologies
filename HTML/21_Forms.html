@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    <title> Welcome to my site | ASISH </title>
+
+    <style>
+        textarea{
+        margin-left:140px;
+        margin-top:0px;
+        }
+        #x{
+            margin-top:50px; 
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <h2 style="color:red ;">This is a HTML form</h2>
+        <form action="mypage.php">
+
+            <div>
+                Name: <input type="text" name="myName" placeholder="Enter your name">
+            </div>
+            <br>
+            <div>
+                Email: <input type="email" name="myEmail">
+            </div>
+
+            <br>
+            <div>
+                Date: <input type="date" name="myDate">
+            </div>
+            <br>
+            <div>
+                Bonus: <input type="number" name="myBonus">
+            </div>
+            <br>
+            <div>
+                Are you eligible?: <input type="checkbox" name="elg">
+            </div>
+            <br>
+            <div>
+                Gender:<input type="radio" name="a" >Male
+                <input type="radio" name="b" >Female
+                <input type="radio"  name="c">Other
+            </div>
+
+            <br>
+            <div id="x">
+                Write about yourself:
+                </div>
+                
+        
+                <textarea name="myText" cols="50" rows="5">
+                    
+                </textarea>
+            
+
+            <br>
+            <div>
+                <label for="car">Car</label>
+                <select name="myCar" id="car">
+                    <option value="ind">Indica</option>
+                    <option value="swf" selected>Swift</option>
+                    <option value="MG" selected>MG</option>
+                    <option value="Hyundai" selected>Hyundai</option>
+                    <option value="MAruti" selected>Maruti</option>
+                </select>
+            </div>
+            <br>
+
+            <div>
+                <input type="submit" value="LOGIN">
+                <input type="reset" value="Reset Now">
+            </div>
+        </form>
+    </body>
+</body>
+
+</html>

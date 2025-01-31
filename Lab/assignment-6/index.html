@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income tax</title>
+    <link rel="stylesheet" href="style.css">
+     
+</head>
+<body>
+  
+    <div class="container">
+        <div class="subcontainer"><p>TAXMANN'S </p></div>
+   
+            <div class="sub1"> 
+            <label>Step1: <span>Assessment Year</span> </label> <select name="x" id="one">
+            <option value="">Select The Year</option>
+            <option value="">2018-2019</option>
+            <option value="">2019-2020</option>
+            <option value="">2020-2021</option>
+            <option value="">2021-2022</option>
+            <option value="">2022-2023</option>
+            <option value="">2023-2024</option>
+            <option value="">2024-2025</option></select></div>
+            <div class="sub2"> 
+            <label>Step2: <span>Tax Payer</span></label><select name="y" id="two">
+            <option value="">Select The payer</option>
+            <option value="">Individual</option>
+            <option value="">Group</option>
+            <option value="">Others</option></select></div>
+            <div class="sub3">
+            <label>Step3: <span>Male | Female | Others</span></label><select name="z" id="three">
+            <option>Select The Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+            </select> </div>
+            <div class="sub4"> 
+            <label>Step4: <span>Resendential status</span></label><select name="x1" id="four">
+                <option value="">Select The status</option>
+                <option value="">Resendential</option>
+                <option value="">non-Resendential</option>
+               
+            </select></div>
+            <div class="sub5">
+            <label>Step5: <span>Net Taxable Income</span></label><input type="number" id="income1" required>
+        </div>
+      
+      
+
+     
+        <div class="taxcontainer">
+            <div class="tax1"><p class="para">YOUR TAX COMPUTATION</p></div>
+
+        <label for="income">Net Taxable Income:</label>
+        <input type="number" id="income" placeholder="Enter income"><br><br>
+             <label for="relief87A">Income Tax </label>
+            <input type="number" id="relief87A" placeholder="Enter relief amount" required><br><br>
+    
+            <label for="surcharge">Surcharge:</label>
+            <input type="number" id="surcharge" placeholder="Enter surcharge" required><br><br>
+    
+            <label for="educationCess">Education Cess:</label>
+            <input type="number" id="educationCess" placeholder="Enter education cess" required><br><br>
+            <button onclick="calculateTax()" type="submit">Calculate Tax</button>
+            <button class="reset">Reset</button>
+            <div id="result"></div>
+             
+            
+        </div>
+        
+ 
+   
+   
+        <script>
+            function calculateTax() {
+                const assessmentYear = document.getElementById("one").value;
+                const taxPayer = document.getElementById("two").value;
+                const gender = document.getElementById("three").value;
+                const residentialStatus = document.getElementById("four").value;
+                const income = parseFloat(document.getElementById("income").value);
+                const relief87A = parseFloat(document.getElementById("relief87A").value);
+                const surcharge = parseFloat(document.getElementById("surcharge").value);
+                const educationCess = parseFloat(document.getElementById("educationCess").value);
+    
+     
+                const totalTaxLiability = calculateTaxLiability(income, relief87A, surcharge, educationCess);
+    
+                document.getElementById("result").innerHTML = `Total Tax Liability for Assessment Year ${assessmentYear}: $${totalTaxLiability.toFixed(2)}`;
+            }
+    
+            function calculateTaxLiability(income, relief87A, surcharge, educationCess) {
+                
+    
+                const taxableIncome = income - relief87A;
+                let tax = 0;
+    
+                 
+                if (taxableIncome <= 500000) {
+                    tax = taxableIncome * 0.05;
+                } else if (taxableIncome <= 1000000) {
+                    tax = 25000 + (taxableIncome - 500000) * 0.2;
+                } else {
+                    
+                }
+    
+             
+                tax += surcharge;
+                tax += (tax * educationCess / 100);
+    
+                return tax;
+            }
+        </script>
+</body>
+</html>

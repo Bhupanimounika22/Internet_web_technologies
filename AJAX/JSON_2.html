@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET", "https://github.com/asishtech/JSON/blob/main/j3.json", true);
+xmlhttp.send();
+
+
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    // document.getElementById("demo").innerHTML = myObj.getElementsByTagName("pets");
+    console.log("hii");
+    
+    
+  }
+
+
+};
+
+
+</script>
+
+
+</body>
+</html>

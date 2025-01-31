@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="stylea.css">
+	<script src="index.js"></script>
+	<style>
+	#clockContainer {
+	position: absolute;
+	top: 15%;
+	left: 30%;
+	margin: auto;
+	height: 40vw;
+	width: 40vw;
+	background: url(https://www.bulbs-unlimited.com/webshop/images/product_images/original_images/clocroc_zifferblatt_ambientshop_blackboard_3_big_600.jpg) no-repeat;
+	background-size: 100%;
+}
+body{
+	background-color: white;
+}
+#hour,
+#minute,
+#second {
+	position: absolute;
+	 
+	border-radius: 10px;
+	transform-origin: bottom;
+}
+
+#hour {
+	width: 1.8%;
+	height: 25%;
+	top: 25%;
+	left: 48.85%;
+	opacity: 0.8;
+	background: rgb(6, 186, 42);
+}
+
+#minute {
+	width: 1.6%;
+	height: 30%;
+	top: 19%;
+	left: 48.9%;
+	opacity: 0.8;
+	background: rgb(123, 122, 124);
+}
+
+#second {
+	width: 1%;
+	height: 40%;
+	top: 9%;
+	left: 49.25%;
+	opacity: 0.8;
+	background: crimson;
+}
+#dot{
+    width: 20px;
+	height: 20px;
+	background-color: white;
+	border-radius: 50%;
+	position: absolute;
+	top: 48%;
+	left: 48%;
+}
+h4{
+	position: absolute;
+	top: 35%;
+	left: 43%;
+	color: aliceblue;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: 16pt;
+
+}
+	</style>
+</head>
+<body>
+	<div id="clockContainer">
+		<h4>Mounika</h4>
+		<div id="hour"></div>
+		<div id="minute"></div>
+		<div id="second"></div>
+		<div id="dot"></div>
+	 
+	</div>
+	<script>setInterval(() => {
+		clock= new Date();  
+		hr = clock.getHours();
+		min = clock.getMinutes();
+		sec = clock.getSeconds();
+		hr_rotation = 30 * hr + min / 2;  
+		min_rotation = 6 * min;
+		sec_rotation = 6 * sec;
+	
+		hour.style.transform = `rotate(${hr_rotation}deg)`;
+		minute.style.transform = `rotate(${min_rotation}deg)`;
+		second.style.transform = `rotate(${sec_rotation}deg)`;
+	}, 1000);</script>
+</body>
+</html>

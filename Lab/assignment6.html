@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University page</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .navbar{
+            background-color: rgb(71, 15, 15);
+            width: auto;
+            height: 60px;
+         }
+        .list{
+            position: relative;
+            top: 10px;
+            padding: 30px;
+            color: white;
+            display: inline;
+            font-family:'Times New Roman', Times, serif;
+            font-size: 13pt;
+        }
+        .btn1{
+           position: relative;
+           top: 10px;
+           left: 350px;
+            width: 100px;
+            height: 35px;
+            margin-left: 40px;
+            border-radius: 10px;
+            border: none;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            font-size: 13pt;
+            color: rgb(71, 15, 15);
+            
+        }
+        .bg{
+            width: 1440px;
+            height: 300px;
+        }
+        .img1{
+            width: 1440px;
+            height: 650px;
+            filter: brightness(0.55);
+        }
+       h1{
+        position: absolute;
+        top: 30%;
+        left: 20%;
+        color: white;
+        font-size: 60pt;
+       }
+       p{
+        position: absolute;
+        top: 45%;
+        left: 15%;
+        color: white;
+        font-size: 16pt;
+      
+
+       }
+       .img2{
+        margin-top: 340px;
+        padding: 20px;
+        width: 50px;
+        height: 50px;
+        position: relative;
+         left: 500px;
+       }
+       footer{
+        background-color: rgb(71, 15, 15);
+
+       }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li class="list">Home</li>
+            <li class="list">Contact</li>
+            <li class="list">About</li>
+            <li class="list">Courses</li>
+            <li class="list">Explore</li>
+            <li class="list">Events</li>
+            <button class="btn1" onclick="myfun()">Login</button>
+            <button class="btn1">SignUp</button>
+        </ul>
+
+
+    </div>
+   <div class="bg">
+    <img  class="img1" src="https://media.cnn.com/api/v1/images/stellar/prod/221102021511-01-stanford-university-reviews-dorm-safety-procedures.jpg?c=16x9&q=h_720,w_1280,c_fill" alt="">
+
+   </div>
+   <h1>WELCOME TO VIT AP</h1>
+   <p>VIT-AP (Vellore Institute of Technology-Andhra Pradesh) is a prominent private university in India, established in 2017. <br> Located in Amaravati, Andhra Pradesh, it is an offshoot of the prestigious Vellore Institute of Technology (VIT) based in <br>
+    Tamil Nadu. VIT-AP offers a wide range of undergraduate and postgraduate programs in engineering, technology, <br>
+    management, and other fields. The university is known for its modern infrastructure, state-of-the-art laboratories, and a <br>
+    strong emphasis on research and innovation. It aims to provide quality education and create skilled professionals to meet <br> 
+    the evolving demands of various industries. VIT-AP is recognized for its academic excellence and diverse student community.</p>
+    <footer> 
+    <a href="#insta" class="links"><img class="img2"   src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png?20200512141346" alt=""></a>
+    <a href="#facebook" class="links"><img class="img2"   src="https://cdn-icons-png.flaticon.com/512/3670/3670203.png" alt=""></a> 
+    <a href="#twitter" class="links"><img class="img2"   src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt=""></a> 
+    <a href="#telegram" class="links"><img class="img2"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/480px-Telegram_logo.svg.png" alt=""></a> 
+    <a href="#github" class="links"><img class="img2"  src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt=""></a> 
+</footer>
+    <script>
+        function myfun(){
+            window.location.assign("assign6login.html");
+        }
+
+    </script>
+</body>
+</html>

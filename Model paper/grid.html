@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+   
+    
+    .container{
+     
+
+      display: grid;
+      grid-gap: 5px;
+      grid-template-areas:
+      ' A A A A A A'
+      ' B B C C C C'
+       
+
+  }
+
+    .G1{
+      background-color: pink;
+      grid-area: 'A';
+    }
+    
+      .G2{
+        background-color: rgb(152, 224, 227);
+        grid-area: 'B';
+      }
+      .G3{
+        background-color: rgb(152, 224, 227);
+        grid-area: 'C';
+
+      } 
+      .G4{
+        background-color: rgb(155, 227, 152);
+        grid-area: 'D';
+
+      }.G5{
+        background-color: rgb(152, 224, 227);
+        grid-area: 'E';
+
+      } .G6{
+        background-color: rgb(152, 224, 227);
+        grid-area: 'F';
+
+      } 
+      .G7{
+        background-color: pink;
+        grid-area: 'G';
+
+      }.G8{
+        background-color: rgb(183, 233, 165);
+        grid-area: 'H';
+
+      } 
+</style>
+<body>
+    <div class="container">
+        <div class="G1">A</div>
+        <div class="G2">B</div>
+        <div class="G3">C</div>
+        <div class="G4">D</div>
+        <div class="G5">E</div>
+        <div class="G6">F</div>
+        <div class="G7">G</div>
+        <div class="G8">H</div>
+ 
+    </div>
+</body>
+</html>

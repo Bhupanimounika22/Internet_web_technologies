@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 id="demo"></h1>
+
+<script>
+
+    var a = new XMLHttpRequest();
+    a.open("GET", "http://127.0.0.1/AJAX/JSON/j3.json", true);
+    a.send();
+      
+    a.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200)
+    {
+      let x = JSON.parse(this.responseText);
+        demo.innerHTML = x.login[1].uname;
+     } 
+  };
+    
+    
+    </script>
+    
+    
+  
+</body>
+</html>
+
+

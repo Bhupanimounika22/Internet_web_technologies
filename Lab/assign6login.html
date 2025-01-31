@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> STUDENT LOGIN</title>
+<style>
+  body{
+    background-color: rgb(71, 15, 15);
+    background-size: cover;
+  }
+  .container{
+    position: relative;
+    top: 250px;
+    left: 40%;
+
+  }
+  input{
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+  }
+  label{
+    color:  white;
+    font-size: 17pt;
+  }
+  button{
+    width: 200px;
+    height: 50px;
+    background-color: rgb(175, 223, 31);
+    border: none;
+    color:  white;
+    font-size: 16pt;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    left: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 50px #9ac9d9;
+  }
+  h1{
+    color:  white;
+  }
+  
+</style>
+</head>
+<body>
+ <div class="container">
+<h1>STUDENT LOGIN</h1>
+<form id="login-form">
+<div class="form-group">
+ <label for="username"><b>username:</b></label>
+<input type="text" id="username" name="username" required>
+ </div><br>
+ <div class="form-group">
+<label for="password" class="password"><b>Password:</b></label>
+ <input type="password" id="password" name="password" required>
+</div><br>
+ <button type="submit">Login</button>
+ </form>
+<div id="error-message" class="error-message" style="color: white; margin-top:20px"></div>
+ </div>
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("login-form");
+   const errorMessage = document.getElementById("error-message");
+   
+   
+    const users = [
+    { username: '21MIC7150', password: '1234', name: 'mounika' },
+   { username: '21MIC7156', password: '4321', name: 'mohana' },
+    ];
+   
+   loginForm.addEventListener("submit", function (e) {
+   e.preventDefault();
+   errorMessage.textContent = "";
+   
+   const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+   
+  
+   const user = users.find(user => user.username=== username&& user.password === password);
+   
+    if (user) {  
+   window.location.href = `nextpage.html?name=${user.name}`;
+   } else {
+   errorMessage.textContent = "Invalid registration number or password.";
+    }
+  });
+   });
+ </script>
+</body>
+</html>

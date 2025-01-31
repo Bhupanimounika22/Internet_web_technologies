@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Welcome Page</title>
+<style>
+    body {
+
+   background-color: darkred;
+    
+        }
+    
+        #login-form{
+            padding-top: 200px;
+            
+        }
+            
+
+            h1 {
+                position: relative;
+    
+                text-align: center;
+             
+                color: rgb(251, 252, 252);
+                width: fit-content;
+                padding: 10px;
+                margin: 0 auto 20px auto;
+            }
+           
+            .container{
+                display: grid;
+                place-items: center;
+                position: relative;
+                top: 200px;
+                
+                
+            }
+            .form-group{
+                margin-left: 60px;
+            }
+           
+    
+        
+            button {
+            background-color: #007bff;
+            color: #fff;
+           width: 400px;
+           height: 40px;
+            box-shadow: 0 0 20px #9ac9d9;
+            font-weight:bold;
+            padding: 10px;
+            
+            
+            }
+            
+            button:hover {
+            background-color: #08619d;
+            }
+            
+            .error-message {
+             color: red;
+            font-weight: bold;
+            }
+            
+            
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Welcome To  Vtop</h1>
+<p style="color: white ; font-weight:bold;">Hello, <span id="user-name"></span>!</p>
+ <button id="cat1-button">CAT-1</button><br>
+<button id="cat2-button">CAT-2</button><br>
+ <button id="fat-button">FAT</button><br>
+<div id="marks-display" style="color: white;"></div>
+</div>
+<script>
+
+   
+    document.addEventListener("DOMContentLoaded", function () {
+const userNameSpan = document.getElementById("user-name");
+const cat1Button = document.getElementById("cat1-button");
+const cat2Button = document.getElementById("cat2-button");
+ const fatButton = document.getElementById("fat-button");
+const marksDisplay = document.getElementById("marks-display");
+
+ 
+const users = [
+{ username: '21MIC7150', password: '1234', name: 'mounika', marks: { cat1: { HCI: 80, CLOUD: 84, IWT: 72 }, cat2: { HCI: 70, CLOUD: 80, IWT: 90 }, fat: { HCI: 60, CLOUD: 70, IWT: 80 } } },
+{ username: '21MIC7156', password: '4321', name: 'mohana', marks: { cat1: { HCI: 90, CLOUD: 82, IWT: 80 }, cat2: { HCI: 90, CLOUD: 80, IWT: 70 }, fat: { HCI: 80, CLOUD: 70, IWT: 80 } } },
+];
+
+ const urlParams = new URLSearchParams(window.location.search);
+const name = urlParams.get("name");
+  
+
+
+ 
+ const currentUser = users.find(user => user.name === name);
+
+if (currentUser) {
+ userNameSpan.textContent = currentUser.name;
+
+ cat1Button.addEventListener("click", function () {
+displayMarks("CAT-1 Marks", currentUser.marks.cat1);
+});
+
+ cat2Button.addEventListener("click", function () {
+ displayMarks("CAT-2 Marks", currentUser.marks.cat2);
+ });
+
+ fatButton.addEventListener("click", function () {
+displayMarks("FAT Marks", currentUser.marks.fat);
+});
+ } else {
+
+console.error("User not found");
+ }
+
+function displayMarks(title, marks) {
+ const marksHTML = `
+ <h2>${title}</h2>
+<p>HUMAN COMPUTER INTERATION: ${marks.HCI}</p>
+ <p>CLOUD COMPUTING: ${marks.CLOUD}</p>
+<p>INTERNET AND WEB TECHNOLOGY: ${marks.IWT}</p>
+ `;
+
+marksDisplay.innerHTML = marksHTML;
+ }
+});
+
+</script></body></html>

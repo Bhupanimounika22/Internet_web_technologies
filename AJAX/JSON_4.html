@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        span{
+            color:red;
+            display: none;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    
+   Username: <input type="text" id="un"><br>
+   
+   password: <input tyep="password" id="pw"><br>
+   <span id="error">Invalid credentails</span><br>
+
+    <input type= "submit" onclick="abcd()"> 
+
+</body>
+
+
+<script>
+
+     
+    function abcd()
+      {
+
+          var a = new XMLHttpRequest();
+          a.open("GET", "http://127.0.0.1/AJAX/name.json", true);
+       
+          a.send();
+  
+  
+          a.onreadystatechange =function() {
+          if (this.readyState == 4 && this.status == 200) {
+              let data = JSON.parse(this.responseText);
+            
+          let u = document.getElementById("un").value;
+          let p = document.getElementById("pw").value;
+          let status = 0;
+          for (let i = 0;i<data.login.length;i++)
+          {
+          
+          if(u== data.login[i].uname && p== data.login[i].pass)
+          {
+              document.write("LOGIN SUCCESSFUL");  
+              status = 1;
+              break;
+          }
+        
+      
+        }
+
+        if (status==0)
+        {
+            error.style.display = "block"
+        }
+    }
+      };
+  }
+  
+  </script>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: Arial, sans-serif;
+   
+    background-color: #f0f0f0;
+  }
+  
+  .calculator {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    width: 300px;
+    position: relative;
+    top: 100px;
+    left: 550px;
+  }
+  
+  #display {
+    width: 100%;
+    font-size: 24px;
+    border: none;
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  
+  button {
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  header{
+    background-color: rgb(81, 80, 80);
+    color: white;
+    text-align: center;
+  }
+  footer{
+    background-color: rgb(81, 80, 80);
+    color: white;
+    text-align: center;
+    position: relative;
+    top: 200px;
+  }
+  .avatar{
+    width: auto;
+    height:100px;
+    border-radius: 50%;
+  }
+</style>
+<body>
+  <header> 
+    <h1>REG NO:21MIC7156</h1>
+    <h2>NAME :B.MOUNIKA</h2>
+    <img class="avatar" src="https://res.cloudinary.com/dugzhycni/image/upload/v1666011894/IMG_20221017_183304_m3hmml.jpg" alt="">
+  </header>
+  <div class="calculator">
+    <input id="display" type="text" readonly>
+    <div class="buttons">
+      <button onclick="appendNumber('7')">1</button>
+      <button onclick="appendNumber('8')">2</button>
+      <button onclick="appendNumber('9')">3</button>
+      <button onclick="appendOperator('+')">+</button>
+      <button onclick="appendNumber('4')">4</button>
+      <button onclick="appendNumber('5')">5</button>
+      <button onclick="appendNumber('6')">6</button>
+      <button onclick="appendOperator('-')">-</button>
+      <button onclick="appendNumber('1')">7</button>
+      <button onclick="appendNumber('2')">8</button>
+      <button onclick="appendNumber('3')">9</button>
+      <button onclick="appendOperator('*')">*</button>
+      <button onclick="appendNumber('0')">0</button>
+      <button onclick="appendDecimal('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="appendOperator('/')">/</button>
+      <button onclick="calculatePower()">^</button>
+   
+    </div>
+  </div>
+  <footer>
+		<p>&copy;created by Mounika</p>
+		  
+			<p>Contact:98662182882</p>
+			<p>Email:mounika.21mic7156@vitapstudent.ac.in</p>
+	</footer>
+  <script>
+    let displayValue = '';
+
+function appendNumber(number) {
+  displayValue += number;
+  updateDisplay();
+}
+
+function appendOperator(operator) {
+  displayValue += ` ${operator} `;
+  updateDisplay();
+}
+
+function appendDecimal(decimal) {
+  if (!displayValue.includes(decimal)) {
+    displayValue += decimal;
+    updateDisplay();
+  }
+}
+
+function updateDisplay() {
+  document.getElementById('display').value = displayValue;
+}
+
+function clearDisplay() {
+  displayValue = '';
+  updateDisplay();
+}
+
+function calculate() {
+  try {
+    displayValue = eval(displayValue).toString();
+    updateDisplay();
+  } catch (error) {
+    displayValue = 'Error';
+    updateDisplay();
+  }
+}
+
+function calculatePower() {
+  displayValue = Math.pow(eval(displayValue), 2).toString();
+  updateDisplay();
+}
+
+function calculateSquare() {
+  displayValue = Math.pow(eval(displayValue), 2).toString();
+  updateDisplay();
+}
+
+  </script>
+
+</body>
+</html>

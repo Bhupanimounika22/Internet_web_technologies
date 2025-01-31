@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #f0f0f0;
+    }
+    
+ 
+  </style>
+  <title>Sliding Images with Animations</title>
+</head>
+<body>
+
+  <div class="images" style="max-width:500px">
+    <img class="mySlides" src="https://img.staticmb.com/mbcontent/images/uploads/2022/12/Feng-shui-fish-acquarium.jpg" style="width:100%">
+    <img class="mySlides" src="https://www.thesprucepets.com/thmb/7jfRUWyxAEorSJyT3Hxh57q-720=/3000x0/filters:no_upscale():strip_icc()/small-aquarium-fish-breeds-for-freshwater-5120495-hero-f100259328dd4c3287645b3903eea69a.jpg" style="width:100%">
+    <img class="mySlides" src="https://images.unsplash.com/photo-1580216322019-86665d337e34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b2NlYW4lMjBmaXNofGVufDB8fDB8fHww&w=1000&q=80" style="width:100%">
+    <img class="mySlides"  src="https://img.freepik.com/free-photo/purple-osteospermum-daisy-flower_1373-16.jpg?w=2000"style="width:100%">
+    <img class="mySlides"  src="https://images.unsplash.com/photo-1516408388733-2f8364f2e00b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG9jZWFuJTIwZmlzaHxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"style="width:100%">
+
+  </div>
+  <script>
+    var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000);
+}  
+  </script>
+</body>
+ 
